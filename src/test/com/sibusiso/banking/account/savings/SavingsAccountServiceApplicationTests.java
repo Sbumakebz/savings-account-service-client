@@ -1,11 +1,15 @@
 package com.sibusiso.banking.account.savings;
 
+import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
+import com.sibusiso.banking.savings.BankingException;
+import com.sibusiso.banking.savings.SavingsAccountServiceController;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.annotation.Order;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -13,9 +17,8 @@ import org.springframework.util.Assert;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-
+@SpringBootTest(classes = SavingsAccountServiceController.class)
 @ExtendWith(SpringExtension.class)
-@WebMvcTest(value = SavingsAccountServiceController.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class SavingsAccountServiceApplicationTests {
 
